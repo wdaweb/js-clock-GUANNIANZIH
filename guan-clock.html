@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Weather Clock </title>
+    <link rel="stylesheet" href="./clockStyle.css">
+    <link rel="stylesheet" href="./weather.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="weather-container">
+            <!-- toggle -->
+            <div class="switch-toggle">
+                <!-- input:checkbox id 要對應 label 的 for -->
+                <input type="checkbox" id="switch">
+                <label for="switch">
+                    <!-- 按鈕開關顯示控制 turnOn="" turnOff="" -->
+                    <span class="switch-text" turnOn="ON" turnOff="OFF"></span>
+                </label>
+
+                <!-- button 旁邊小圖: 太陽/雨天 -->
+                <div class="sun-rain">
+                    <span class="sun flash"></span>
+                    <span class="rain flash"></span>
+                </div>
+
+                <div class="weather-change">
+                    <p class="sunny-text">CLOCK</p>
+                    <img id="cl1" src="./img/cloudy.png">
+                    <img id="cl2" src="./img/cloudy2.png">
+                    <img id="cl3" src="./img/cloudy3.png">
+                    <img id="bum" src="./img/bump.png">
+                    <img id="circle" src="./img/0-02.png">
+                </div>
+
+            </div>
+            <!-- 左右天氣畫面控制: sunny/rain -->
+            <!-- <div class="switch-weather">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div> -->
+        </div>
+
+        <div class="container">
+            <!-- clockFace -->
+            <div class="clockFace fadeIn">
+                <!-- digit 使用 css 自定義屬性(變量、聯集變量)以儲存值的概念，引用到其他地方 -->
+                <span class="digit" style="--i:1">|</span>
+                <span class="digit" style="--i:2">|</span>
+                <span class="digit" style="--i:3">|</span>
+                <span class="digit" style="--i:4">|</span>
+                <span class="digit" style="--i:5">|</span>
+                <span class="digit" style="--i:6">|</span>
+                <span class="digit" style="--i:7">|</span>
+                <span class="digit" style="--i:8">|</span>
+                <span class="digit" style="--i:9">|</span>
+                <span class="digit" style="--i:10">|</span>
+                <span class="digit" style="--i:11">|</span>
+                <span class="digit" style="--i:12">|</span>
+                <div class="hands" id="hour-face" style="--h:140px ; --w:4px"></div>
+                <div class="hands" id="min-face" style="--h:260px ; --w:4px"></div>
+                <div class="hands" id="sec-face" style="--h:320px ; --w:2px"></div>
+            </div>
+            <!-- digital clock -->
+            <div class="clock fadeIn">
+                <span id="hur">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./clockJs.js"></script>
+
+</body>
+
+</html>

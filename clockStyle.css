@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: '微軟正黑體',serif;
+    font-weight: bolder;
+    box-sizing: border-box;
+}
+
+/* over-flow: hidden */
+body{
+    overflow: hidden;
+}
+
+.main{
+    width: 100vw;
+    Height: 100vh;
+    /* background: linear-gradient(45deg, #29849b, #e79940, #1f0e55); */
+    background: linear-gradient(60deg, #a057af,#3cb1b1, #e79940, #221452);
+    color: white;
+    position: relative;
+}
+.container{
+    /* 設定一個空盒子讓 .clock 撐開盒子，也可以使用::before、::after去創造空間變化 */
+    width: 600px; 
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* background: rgba(255, 255, 255, 0.1);  */
+} 
+.clockFace{
+    /* background-color: rgba(255, 255, 255, 0.08); */
+    background-color: rgba(255, 255, 255, 0.02);
+    box-shadow: inset 15px 10px 12px rgba(255, 255, 255, 0.08);
+    /* backdrop-filter: blur(1px); */
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* display: flex; 對子元素做對齊 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.digit{
+    width: 780px;
+    height: 780px;
+    position: absolute;
+    transform: rotate(calc(var(--i) * 30deg));
+    /* inset 定位元素，為top、right、bottom、left四個屬性的縮寫，嫆於指定元素相對於包含塊內邊距的偏移量 */
+    text-align: center;
+}
+.hands{
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: flex-end; */
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 12px 12px 4px 4px;
+}
+#hour-face{
+    width: var(--w);
+    height: var(--h);
+    top: 32.5%;
+    transform-origin: bottom center;
+}
+#min-face{
+    width: var(--w);
+    height: var(--h);
+    top: 17.5%;
+    transform-origin: bottom center;
+}
+#sec-face{
+    width: var(--w);
+    height: var(--h);
+    top: 10%;
+    transform-origin: bottom center;
+}
+.clockFace:before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+    /* z-index: 2; */
+}
+#hour-face,
+#min-face,
+#sec-face{
+    position: absolute;
+}
+.clock{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    /* display: flex; 使用在父容器高度固定的狀態下 */
+    /* 把 display 相關屬性放在自身容器內 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+/* 設定 .clock 的 span */
+.clock span{
+    /* 設定字型大小 */
+    font-size: 56px;
+    /* 利用寬度撐開 */
+    width: 72px;
+    /* 設定 inline-block */
+    display: inline-block;
+    text-align: center;
+    /* 這裡文字設定 position:relative 對齊.click */
+    position: relative;
+    /* 微調畫面置中 */
+    top: 40%;
+}
+/* 利用做好的 span 創造每一個 span 的虛元素 */
+.clock span::after{
+    font-size: 12px;
+    position: absolute;
+    /* 移動到00下方中間，記得要調整座標位置 */
+    bottom: -30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: rgba(255, 255, 255, 0.55);
+}
+/* 透過上面設好的 ::after 套用下面的 #id */
+#hur::after{
+    content: 'HOUR';
+}
+#min::after{
+    content: 'MIN';
+}
+#sec::after{
+    content: 'SEC';
+}
+
+
+
+
